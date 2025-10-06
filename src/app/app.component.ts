@@ -24,6 +24,11 @@ export class AppComponent {
       url:
         'https://consorciokawasakibrasil.com.br/wp-content/uploads/2021/10/2-6-1.png',
       description: 'kawasaki1000cc'
+    },
+    {
+      url:
+        'https://consorciokawasakibrasil.com.br/wp-content/uploads/2021/10/2-6-1.png',
+      description: 'teste'
     }
   ];
 }
