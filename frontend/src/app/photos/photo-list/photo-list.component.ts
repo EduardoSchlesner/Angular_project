@@ -19,7 +19,7 @@ export class PhotoListComponent implements OnInit, OnDestroy {
   private debounceSubscription: Subscription;
 
   hasMore = true;
-  currentPage: numver = 1;
+  currentPage = 1;
   userName = '';
 
   constructor(private activatedRoute: ActivatedRoute,
