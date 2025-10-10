@@ -21,6 +21,9 @@ import {SearchComponent} from './photo-list/search/search.component';
     LoadButtonComponent,
     SearchComponent
   ],
+  exports: [
+    PhotoComponent
+  ],
   imports: [
     HttpClientModule,
     CommonModule,
