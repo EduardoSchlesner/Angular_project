@@ -36,8 +36,9 @@ export class SignInComponent implements OnInit {
         err => {
           console.log(err);
           this.loginForm.reset();
-          this.platformDetectorService.isPlatformBrowser() &&
+          if (this.platformDetectorService.isPlatformBrowser()) {
             this.userNameInput.nativeElement.focus();
+          }
           alert('Invalid Username or Password!');
         }
       );
