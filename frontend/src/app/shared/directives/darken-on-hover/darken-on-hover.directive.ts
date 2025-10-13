@@ -5,7 +5,7 @@ import {Directive, ElementRef, HostListener, Input, Renderer} from '@angular/cor
 })
 export class DarkenOnHoverDirective {
 
-  @Input() brightness = '90%'
+  @Input() brightness = '90%';
 
     constructor(
       private el: ElementRef,
