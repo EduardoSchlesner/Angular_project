@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {SignupService} from './signup.service';
+import {NewUser} from './new-user';
+import {lowerCaseValidator} from '../../shared/validators/lower-case.validator';
 
 @Component({
   templateUrl: './signup.component.html'
@@ -35,7 +37,7 @@ export class SignupComponent implements OnInit {
       userName: ['',
         [
           Validators.required,
-          Validators.pattern(/^[a-z0-9_\-]+$/),
+          lowerCaseValidator,
           Validators.minLength(2),
           Validators.maxLength(30)
         ]
@@ -51,7 +53,7 @@ export class SignupComponent implements OnInit {
   }
   register() {
     if (this.signupForm.valid) {
-      const newUser = this.signupForm.getRawValue();
+      const newUser = this.signupForm.getRawValue() as NewUser;
 
       this.signupService
         .register(newUser)
