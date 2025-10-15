@@ -42,6 +42,20 @@
     <ap-vmessage *ngIf="signupForm.get('userName').errors?.lowerCase"
                  text="Must be lower case">
     </ap-vmessage>
+
+    <ap-vmessage
+      *ngIf="signupForm.get('userName').errors?.userNameTaken && signupForm.get('userName').touched"
+      text="This username is already taken!">
+    </ap-vmessage>
+
+    <ap-vmessage
+      *ngIf="signupForm.get('userName').pending"
+      text="Verifying username...">
+    </ap-vmessage>
+
+    <small *ngIf="signupForm.get('userName').valid && signupForm.get('userName').touched" class="text-success">
+      Username available!
+    </small>
   </div>
 
   <div class="form-group">

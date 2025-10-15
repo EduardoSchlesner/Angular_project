@@ -42,7 +42,9 @@ export class SignupComponent implements OnInit {
           lowerCaseValidator,
           Validators.minLength(2),
           Validators.maxLength(30)
-        ]
+        ],
+        // validador assíncrono!!!
+        this.userNotTakenValidatorService.checkUserNameTaken()
       ],
       password: ['',
         [
@@ -50,8 +52,6 @@ export class SignupComponent implements OnInit {
           Validators.minLength(8),
           Validators.maxLength(14)
         ],
-        // validador assíncrono!!!
-        this.userNotTakenValidatorService.checkUserNameTaken()
       ]
     });
   }
