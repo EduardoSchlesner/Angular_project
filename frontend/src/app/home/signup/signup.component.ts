@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {SignupService} from './signup.service';
 import {NewUser} from './new-user';
 import {lowerCaseValidator} from '../../shared/validators/lower-case.validator';
+import {UserNotTakenValidatorService} from './user-not-taken.validator.service';
 
 @Component({
   templateUrl: './signup.component.html'
@@ -15,8 +16,9 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private signupService: SignupService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private userNotTakenValidatorService: UserNotTakenValidatorService
+  ) {}
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -47,7 +49,9 @@ export class SignupComponent implements OnInit {
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(14)
-        ]
+        ],
+        // validador assíncrono!!!
+        this.userNotTakenValidatorService.checkUserNameTaken()
       ]
     });
   }
